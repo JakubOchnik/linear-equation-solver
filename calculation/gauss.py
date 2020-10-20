@@ -1,4 +1,5 @@
 import numpy as np
+
 class gauss_jordan:
     def __init__(self):
         print("Calculation started!\nSteps:")
@@ -7,7 +8,7 @@ class gauss_jordan:
         newMatrix = matrix[~np.all(matrix==0,axis=1)]
         return zeroCount, newMatrix
     def findParameters(self, x, y, matrix):
-        #szukanie kolumny z jedna wartoscia
+        # looking for a column with only one value different from 0
         columns = []
         rows=[]
         for i in range(x-1):
@@ -32,21 +33,20 @@ class gauss_jordan:
 
 
     def solve(self,x,y,matrix):
-        #sprawdz czy rownan nie jest wiecej niz zmiennych
+        # check if there are more equations than variables
         if y > x-1:
             drop = y - (x-1)
             matrix = matrix[:-drop,:]
             y = y - drop
-        #glowna petla, tyle iteracji ile jest rownan
+        # main loop, no of iterations equal to no of equations
         for i in range(y):
-            #!!! i odpowiada za wspolrzedna x przekatnej
+            #i corresponds to x diagonal coordinate
             #matrix[0][0]
             #matrix[y_index][i]
 
-            #petla powtarzajaca operacje dla kazdego z rownan nizej
+            # a loop which repeats operations for any equation below
             for j in range(i+1,y):
-                #glowna petla, kazdy ponizej
-                #1. sprawdz wspolczynnik pomnozenia
+                #1. check the multiplication factor
                 coeff = matrix[j][i]/matrix[i][i]
                 #2. multiply row of the matrix
                 row = np.copy(matrix[i])
@@ -61,17 +61,16 @@ class gauss_jordan:
                 print(matrix)
                 if j == y - 1:
                     break
-        #na odwrot
+        #the other way around
         i_countup = 1
         for i in reversed(range(y)):
-            #!!! i odpowiada za wspolrzedna x przekatnej
+            #i corresponds to x diagonal coordinate
             #matrix[0][0]
             #matrix[y_index][i]
 
-            #petla powtarzajaca operacje dla kazdego z rownan nizej
+            # a loop which repeats operations for any equation above
             for j in reversed(range(y-i_countup)):
-                #glowna petla, kazdy ponizej
-                #1. sprawdz wspolczynnik pomnozenia
+                #1. check the multiplication factor
                 coeff = matrix[j][i]/matrix[i][i]
                 #2. multiply row of the matrix
                 row = np.copy(matrix[i])
