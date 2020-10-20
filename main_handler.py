@@ -1,5 +1,5 @@
 from interface import *
-from calculation.gauss import *
+from calculation.gauss import gauss_jordan
 import numpy as np
 
 class main_handler:

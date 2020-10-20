@@ -1,7 +1,8 @@
 from main_handler import *
 import numpy as np
-test = main_handler()
-test.start()
+if __name__ == "__main__":
+    test = main_handler()
+    test.start()
 
 #test = np.matrix('1 2; 3 4')
 #print(test)
