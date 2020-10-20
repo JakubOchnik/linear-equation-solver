@@ -1,7 +1,7 @@
 import numpy as np
 class gauss_jordan:
     def __init__(self):
-        print("Gauss-Jordan class!")
+        print("Calculation started!\nSteps:")
     def checkZeros(self, matrix):
         zeroCount = np.sum(~matrix.any(1))
         newMatrix = matrix[~np.all(matrix==0,axis=1)]
@@ -18,7 +18,7 @@ class gauss_jordan:
             if temp_ctr < 2:
                 columns.append(i)
         return columns
-    def parameterCleanup(self,x,y matrix, columns):
+    def parameterCleanup(self,x,y, matrix, columns):
         while counter!=y:
             for i in range(x-1):
                 temp_ctr = 0
@@ -26,6 +26,7 @@ class gauss_jordan:
                     if matrix[j][i] != 0:
                         temp_ctr+=1
                 if temp_ctr > 1:
+                    pass
                 else:
                     columns.append(i)
 
@@ -86,10 +87,9 @@ class gauss_jordan:
                 if j == y - 1:
                     break
             i_countup = i_countup + 1
-        
         results = []
         if y < x-1:
-
+            pass
         else:
             for i in range(y):
                 if matrix[i][i] != 1:
@@ -98,6 +98,3 @@ class gauss_jordan:
                     temp = matrix[i][x-1]
                 results.append(temp)
         return results
-            
-
-            
