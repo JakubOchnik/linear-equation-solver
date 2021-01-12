@@ -1,13 +1,14 @@
 import numpy as np
 class gauss_jordan:
     def __init__(self):
-        print("Gauss-Jordan class!")
+        #print("Gauss-Jordan class!")
+        pass
     def checkZeros(self, matrix):
         zeroCount = np.sum(~matrix.any(1))
         newMatrix = matrix[~np.all(matrix==0,axis=1)]
         return zeroCount, newMatrix
     def find_parameters(self, x, y, matrix, finish=False):
-        #szukanie kolumny z jedna wartoscia
+        #looking for a column which contains only one non-zero value
         columns_x = []
         rows_y=[]
         for i in range(x-1):
